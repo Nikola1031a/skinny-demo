@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Cenovnik – SKINNY beauty Kruševac</title>
+  <meta name="description" content="Kompletan cenovnik salona SKINNY beauty u Kruševcu: tretmani lica, manikir i pedikir, trepavice i obrve, masaže i mršavljenje, kavitacija, depilacija, trajna i profesionalna šminka, solarijum i spray tan.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sr_RS">
+  <meta property="og:title" content="Cenovnik – SKINNY beauty Kruševac">
+  <meta property="og:description" content="Sve cene usluga salona SKINNY beauty, TC Fontana, Kruševac.">
+  <meta property="og:image" content="img/enterijer.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Great+Vibes&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="skinny.css">
+  <script src="skinny.js"></script>
+</helmet>
+
+<dc-import name="Header" active="cenovnik" over-hero="{{ false }}" hint-size="100%,0px"></dc-import>
+
+<main>
+<section aria-labelledby="cen-h" style="position:relative;background:#FDEAF3;padding:clamp(160px,18vw,210px) 0 clamp(56px,7vw,90px);overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;width:620px;height:620px;right:-180px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(238,2,147,.22),rgba(238,2,147,0) 66%);animation:skBreathe 7s ease-in-out infinite"></div>
+  <div style="position:relative;max-width:1080px;margin:0 auto;padding:0 20px">
+    <div style="display:flex;align-items:center;gap:12px;color:#C8007B;font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;animation:skFadeUp .8s ease both">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10.2c.9-.1 1.4.7 1.1 1.4-.4.9-1.8 1-2.5.2-.9-1-.4-2.7 1-3.1 1.8-.5 3.5.9 3.3 2.8-.2 2.2-2.6 3.4-4.6 2.6-2.3-.9-3-3.6-1.8-5.6"></path><path d="M6.5 9c-.6 3.7 1.9 6.8 5.5 6.8s6.1-3.1 5.5-6.8"></path><path d="M12 15.8V22"></path><path d="M12 19.2c-1.9 0-3.6-1.1-4.2-2.8 1.9-.2 3.6.8 4.2 2.8z"></path></svg>
+      SKINNY beauty · Kruševac <span style="width:48px;height:1px;background:#EE0293"></span>
+    </div>
+    <h1 id="cen-h" style="position:relative;margin:18px 0 0;font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(52px,10vw,132px);line-height:.92;letter-spacing:-.025em">
+      <span style="display:inline-block;overflow:hidden;vertical-align:top;padding-top:.1em;margin-top:-.1em"><span style="display:inline-block;animation:skUp .9s cubic-bezier(.2,.8,.2,1) .1s both">Cenovnik<span style="color:#EE0293">.</span></span></span>
+      <span aria-hidden="true" style="position:absolute;left:3.6em;top:.62em;font-family:'Great Vibes',cursive;text-transform:none;letter-spacing:0;font-size:.62em;color:#1B1F4A;transform:rotate(-8deg);white-space:nowrap;animation:skFade 1.2s ease .7s both">beauty</span>
+    </h1>
+    <p style="margin:26px 0 0;max-width:600px;font-size:clamp(17px,1.6vw,19px);line-height:1.65;color:#3D2F3B;text-wrap:pretty;animation:skFadeUp .9s ease .35s both">Sve cene su u dinarima. Za zakazivanje kliknite na uslugu ili nam pišite na WhatsApp.</p>
+  </div>
+</section>
+
+<div style="position:sticky;top:60px;z-index:20;background:rgba(251,248,249,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(238,2,147,.14)">
+  <div style="max-width:1080px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+    <label style="position:relative;flex:1 1 260px;max-width:100%;display:block">
+      <span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Pretražite uslugu</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6E5F6B" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="position:absolute;left:16px;top:50%;margin-top:-9px"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      <input type="search" value="{{ q }}" onInput="{{ onQ }}" placeholder="Pretražite uslugu…" autocomplete="off" style="width:100%;height:50px;border-radius:999px;border:1.5px solid #E9CFDC;background:#fff;padding:0 18px 0 46px;font:inherit;font-size:16px;color:#1F1520;outline-color:#EE0293">
+    </label>
+    <div data-tabs ref="{{ tabsRef }}" role="navigation" aria-label="Kategorije cenovnika" style="flex:1 1 100%;display:flex;gap:8px;overflow-x:auto;padding:2px 0 2px">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="12">
+        <button type="button" data-tab="{{ t.id }}" onClick="{{ t.click }}" aria-current="{{ t.cur }}" style="flex:none;font-weight:800;font-size:14px;padding:10px 16px;border-radius:999px;border:1.5px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }};cursor:pointer;white-space:nowrap;transition:background .3s,color .3s,border-color .3s">{{ t.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<section aria-label="Cene usluga" style="background:#FBF8F9;padding:44px 0 clamp(80px,10vw,120px)">
+  <div style="max-width:1080px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:22px">
+    <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+      <article id="{{ c.id }}" data-reveal="up" aria-labelledby="{{ c.hid }}" style="scroll-margin-top:150px;background:#fff;border-radius:26px;border:1px solid #F3DCE7;padding:clamp(22px,3.4vw,36px);box-shadow:0 24px 50px -40px rgba(43,14,37,.3)">
+        <header style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;padding-bottom:16px;border-bottom:1px solid #EE0293">
+          <h2 id="{{ c.hid }}" style="margin:0;font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(22px,2.8vw,32px);line-height:1.05;letter-spacing:-.01em">{{ c.title }}<span style="color:#EE0293">.</span></h2>
+          <span style="font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#6E5F6B">{{ c.colHead }}</span>
+        </header>
+        <div style="display:flex;flex-direction:column;margin-top:6px">
+          <sc-for list="{{ c.rows }}" as="r" hint-placeholder-count="5">
+            <a href="{{ r.wa }}" target="_blank" rel="noopener" aria-label="{{ r.aria }}" style="display:flex;align-items:center;gap:14px;padding:13px 10px;margin:0 -10px;border-radius:14px;border-bottom:1px dashed #F0DCE6;color:#1F1520;transition:background .25s" style-hover="background:#FDEAF3;color:#1F1520">
+              <span style="flex:1 1 auto;min-width:0;font-size:16.5px;line-height:1.4;font-weight:{{ r.fw }};color:{{ r.color }}">{{ r.star }}{{ r.name }}</span>
+              <sc-if value="{{ r.dur }}"><span style="flex:none;font-size:12.5px;font-weight:700;color:#6E5F6B;background:#F7EEF2;padding:4px 9px;border-radius:999px">{{ r.dur }}</span></sc-if>
+              <span style="flex:none;font-family:'Archivo Black',sans-serif;font-size:16.5px;color:{{ r.priceColor }};white-space:nowrap">{{ r.price }}</span>
+              <span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:#FDEAF3;color:#C8007B;display:flex;align-items:center;justify-content:center">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"></path></svg>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </article>
+    </sc-for>
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="text-align:center;padding:60px 20px;background:#fff;border-radius:26px;border:1px dashed #E9CFDC">
+        <div style="font-weight:800;font-size:19px">Nismo pronašli „{{ q }}“.</div>
+        <p style="margin:8px 0 18px;color:#6E5F6B">Pišite nam – rado ćemo vam reći da li radimo tu uslugu.</p>
+        <button type="button" onClick="{{ clearQ }}" style="font-weight:800;font-size:15px;padding:12px 20px;border-radius:999px;border:1.5px solid #1F1520;background:transparent;cursor:pointer">Prikaži sve cene</button>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<section aria-labelledby="cen-cta" style="position:relative;background:#2B0E25;color:#fff;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;width:640px;height:640px;left:50%;top:50%;margin:-320px 0 0 -320px;border-radius:50%;background:radial-gradient(circle,rgba(155,61,255,.5),rgba(155,61,255,0) 65%);animation:skBreathe 6s ease-in-out infinite"></div>
+  <div style="position:relative;max-width:900px;margin:0 auto;padding:clamp(80px,10vw,120px) 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px">
+    <h2 id="cen-cta" data-reveal="up" style="margin:0;font-family:'Archivo Black',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(28px,4.4vw,54px);line-height:1.02;letter-spacing:-.015em;text-wrap:balance">Niste sigurni koji tretman vam treba<span style="color:#EE0293">?</span></h2>
+    <p data-reveal="up" style="margin:0;font-size:19px;color:#E9D9E4">Pišite nam – posavetovaćemo vas.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+      <a data-magnetic data-shine href="{{ waAdvice }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#EE0293;color:#fff;font-weight:800;font-size:17px;padding:18px 30px;border-radius:999px;box-shadow:0 18px 40px -14px rgba(238,2,147,.9)" style-hover="background:#C8007B;color:#fff">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"></path></svg>
+        Pišite nam na WhatsApp
+      </a>
+      <a href="tel:+381628931094" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,.7);color:#fff;font-weight:800;font-size:17px;padding:17px 28px;border-radius:999px" style-hover="background:#fff;color:#2B0E25">Pozovi 062 8931094</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<dc-import name="Footer" active="cenovnik" hint-size="100%,520px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const R = (name, price, star, dur) => ({ name, price, star: !!star, dur });
+const CATS = [
+  { id: 'lice', title: 'Tretmani lica', rows: [R('Higijenski tretman', '3.500'), R('Hemijski piling', '4.000'), R('Dermapen', '6.800'), R('RF lica, vrata i dekoltea', '2.000'), R('Bio LED terapija maskom', '1.000'), R('Maderoterapija lica', '1.000'), R('HydraFacial', '4.000'), R('HydraFacial & higijenski tretman', '4.500', 1), R('Hidratacija i osvežavanje suve kože', '3.500'), R('Non-tox botox, RF i ultrazvuk', '4.500'), R('Kolagen niti, RF i hladni čekić', '4.500')] },
+  { id: 'nokti', title: 'Manikir & pedikir', rows: [R('Izlivanje noktiju S&M / L&XL', '2.800 / 3.000'), R('Korekcija noktiju S&M / L&XL', '2.300 / 2.500'), R('Korekcija tuđeg rada', '500'), R('Gel lak', '2.100'), R('Frenč / ombre / crtanje (2 nokta gratis)', '300'), R('Skidanje materijala', '600'), R('Manikir običnim lakom', '1.000'), R('Pedikir sa profi diskom', '2.300'), R('Običan lak (pedikir)', '1.000'), R('Gel lak (pedikir)', '1.700'), R('Frenč na nogama', '300'), R('Pedikir i gel lak', '3.500', 1)] },
+  { id: 'trepavice', title: 'Trepavice & obrve', colHead: 'Nov set / korekcija', rows: [R('1 na 1 svilene trepavice', '3.300 / 2.800'), R('Ruski volumen 2D', '3.700 / 3.200'), R('Ruski volumen 3D', '4.000 / 3.500'), R('Ruski volumen 4D', '4.300 / 3.800'), R('Ruski volumen 5D', '4.600 / 4.100'), R('Ruski volumen 6D', '4.900 / 4.400'), R('Lash lift (bojenje & keratin)', '2.800'), R('Skidanje trepavica rimuverom', '500'), R('Brow lift – laminacija obrva', '2.300'), R('Farbanje i oblikovanje obrva', '1.000', 1), R('Lash & brow lift', '4.500', 1)] },
+  { id: 'masaze', title: 'Masaže & mršavljenje', colHead: 'Trajanje · cena', rows: [R('Maderoterapija celog tela', '1.500', 0, '45 min'), R('Vakuum slim vreća', '1.500', 0, '45 min'), R('Infra sauna ćebe', '1.500', 0, '45 min'), R('Butt lift (podizanje zadnjice)', '1.500', 0, '30 min'), R('Vakuum sonda tela', '1.500', 0, '30 min'), R('Body top', '1.500', 0, '30 min'), R('Presoterapija infra sauna', '1.500', 0, '30 min'), R('Relaks masaža celog tela', '2.500', 1, '55 min'), R('Relaks masaža – parcijalna', '1.800', 0, '30 min')] },
+  { id: 'kavitacija', title: 'Kavitacija 9 u 1', colHead: 'Po 30 min', prefix: 'Kavitacija 9 u 1 – ', rows: [R('Kavitacija', '1.500'), R('RF tela', '1.500'), R('Elektrostimulacija mišića', '1.500'), R('Vakuum RF', '1.500'), R('Lipo laser', '1.500')] },
+  { id: 'paketi', title: 'Paketi tretmana', colHead: 'Kavitacija i tretmani tela', prefix: 'Paket tretmana – ', rows: [R('5 tretmana (1.400 din/tretman)', '7.000', 1), R('10 tretmana (1.300 din/tretman)', '13.000', 1), R('15 tretmana (1.200 din/tretman)', '18.000', 1), R('20 tretmana (1.100 din/tretman)', '22.000', 1)] },
+  { id: 'depilacija', title: 'Depilacija', prefix: 'Depilacija – ', rows: [R('Oblikovanje obrva', '600'), R('Nausnice, brada, neki deo lica', '300'), R('Cele ruke', '1.000'), R('Cele noge', '1.500'), R('Stomak / leđa manji deo', '500'), R('Ruke, noge, obrve i nausnice', '3.000', 1)] },
+  { id: 'secerna-pasta', title: 'Šećerna pasta', prefix: 'Šećerna pasta – ', rows: [R('Cele ruke', '1.200'), R('Cele noge', '1.700'), R('Stomak / leđa manji deo', '700')] },
+  { id: 'trajna-sminka', title: 'Trajna šminka', prefix: 'Trajna šminka – ', rows: [R('Trajna šminka obrva', '15.000'), R('Korekcija tuđeg rada (obrve)', '17.500'), R('Godišnja korekcija našeg rada (obrve)', '12.000'), R('Trajna šminka usana', '15.000'), R('Korekcija tuđeg rada (usne)', '17.500'), R('Godišnja korekcija našeg rada (usne)', '12.000')] },
+  { id: 'sminka', title: 'Profesionalna šminka', rows: [R('Profesionalno šminkanje', '3.500', 1), R('Doplata van radnog vremena', '500')] },
+  { id: 'solarijum', title: 'megaSun solarijum', prefix: 'Solarijum – ', rows: [R('1 minut', '40'), R('100 minuta (35 din/min)', '3.500', 1), R('Krema za sunčanje', '300')] },
+  { id: 'spray-tan', title: 'KWIKTAN spray tan', rows: [R('Potamnjivanje celog tela', '2.200', 0), R('Spray tan i profesionalna šminka', '5.000', 1)] }
+];
+const TAB_LABEL = { lice: 'Lice', nokti: 'Nokti', trepavice: 'Trepavice & obrve', masaze: 'Masaže', kavitacija: 'Kavitacija', paketi: 'Paketi', depilacija: 'Depilacija', 'secerna-pasta': 'Šećerna pasta', 'trajna-sminka': 'Trajna šminka', sminka: 'Šminka', solarijum: 'Solarijum', 'spray-tan': 'Spray tan' };
+const norm = s => s.toLowerCase().replace(/đ/g, 'dj').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+class Component extends DCLogic {
+  state = { q: '', active: 'lice' };
+  wa(m) { return 'https://wa.me/381628931094?text=' + encodeURIComponent(m); }
+  componentDidMount() {
+    const boot = () => { if (!window.SK) return setTimeout(boot, 60); window.SK.init(document); };
+    boot();
+    this.onScroll = () => {
+      let cur = null;
+      for (const c of CATS) { const el = document.getElementById(c.id); if (el && el.getBoundingClientRect().top < 220) cur = c.id; }
+      if (cur && cur !== this.state.active) this.setState({ active: cur });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    const h = decodeURIComponent((location.hash || '').slice(1));
+    if (h && CATS.some(c => c.id === h)) setTimeout(() => this.go(h, true), 350);
+  }
+  componentDidUpdate(pp, ps) {
+    if (window.SK) window.SK.init(document);
+    if (ps.active !== this.state.active && this.tabsEl) {
+      const b = this.tabsEl.querySelector('[data-tab="' + this.state.active + '"]');
+      if (b) this.tabsEl.scrollTo({ left: b.offsetLeft - this.tabsEl.clientWidth / 2 + b.clientWidth / 2, behavior: 'smooth' });
+    }
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+  go(id, instant) {
+    const el = document.getElementById(id); if (!el) return;
+    el.style.opacity = ''; el.style.transform = '';
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: instant ? 'auto' : 'smooth' });
+    this.setState({ active: id });
+  }
+  renderVals() {
+    const q = norm(this.state.q.trim());
+    const cats = CATS.map(c => {
+      const rows = c.rows.filter(r => !q || norm(r.name).includes(q) || norm(c.title).includes(q)).map(r => {
+        const label = (c.prefix || '') + r.name.replace(/\s*\(\d[^)]*din\/[^)]*\)/, '');
+        return {
+          name: r.name, dur: r.dur, star: r.star ? '★ ' : '',
+          price: r.price + ' din',
+          fw: r.star ? 800 : 600, color: r.star ? '#C8007B' : '#1F1520', priceColor: r.star ? '#C8007B' : '#1F1520',
+          wa: this.wa('Zdravo! Želela bih da zakažem termin za: ' + label + '. Kada imate slobodan termin?'),
+          aria: r.name + ', ' + r.price + ' dinara – zakaži preko WhatsApp-a'
+        };
+      });
+      return { id: c.id, hid: c.id + '-h', title: c.title, colHead: c.colHead || 'Cena', rows };
+    }).filter(c => c.rows.length);
+    const tabs = cats.map(c => {
+      const on = c.id === this.state.active;
+      return { id: c.id, label: TAB_LABEL[c.id], cur: on ? 'true' : 'false', bg: on ? '#1F1520' : '#fff', color: on ? '#fff' : '#1F1520', border: on ? '#1F1520' : '#E9CFDC', click: () => this.go(c.id) };
+    });
+    return {
+      q: this.state.q, cats, tabs, empty: cats.length === 0,
+      onQ: e => this.setState({ q: e.target.value }),
+      clearQ: () => this.setState({ q: '' }),
+      tabsRef: el => { this.tabsEl = el; },
+      waAdvice: this.wa('Zdravo! Nisam sigurna koji tretman mi treba – možete li da me posavetujete?')
+    };
+  }
+}
+</script>
+</body>
+</html>

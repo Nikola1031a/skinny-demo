@@ -1,0 +1,62 @@
+/* Only what inline styles can't express: resets, keyframes, group-hover, media queries, reduced motion */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#FBF8F9;color:#1F1520;font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:#C8007B;text-decoration:none}
+a:hover{color:#EE0293}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid #EE0293;outline-offset:3px}
+::selection{background:#F6C6DA;color:#1F1520}
+
+@keyframes skUp{from{transform:translateY(115%)}to{transform:none}}
+@keyframes skFadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes skFade{from{opacity:0}to{opacity:1}}
+@keyframes skKen{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes skDraw{0%{stroke-dashoffset:1200;fill-opacity:0}70%{stroke-dashoffset:0;fill-opacity:0}100%{stroke-dashoffset:0;fill-opacity:1}}
+@keyframes skMarquee{to{transform:translateX(-50%)}}
+@keyframes skBreathe{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.95;transform:scale(1.08)}}
+@keyframes skPulse{0%{box-shadow:0 0 0 0 rgba(238,2,147,.65)}100%{box-shadow:0 0 0 26px rgba(238,2,147,0)}}
+@keyframes skDot{0%{transform:scale(0)}60%{transform:scale(1.45)}100%{transform:scale(1)}}
+@keyframes skOut{to{opacity:0;visibility:hidden}}
+@keyframes skLive{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* service / gallery cards: hover acts on children */
+[data-card]{transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s}
+[data-card]:hover{transform:translateY(-6px);box-shadow:0 28px 50px -22px rgba(238,2,147,.45)}
+[data-card] [data-zoom]{transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+[data-card]:hover [data-zoom]{transform:scale(1.07)}
+[data-card] [data-line]{transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+[data-card]:hover [data-line]{transform:scaleX(1)}
+[data-card] [data-arrow]{opacity:0;transform:translateX(-10px);transition:opacity .4s,transform .4s}
+[data-card]:hover [data-arrow]{opacity:1;transform:none}
+[data-shine]{position:relative;overflow:hidden;isolation:isolate}
+[data-shine]::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);transform:translateX(-130%);transition:transform .9s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+[data-shine]:hover::after{transform:translateX(130%)}
+[data-ig] [data-ig-ov]{opacity:0;transition:opacity .35s}
+[data-ig]:hover [data-ig-ov],[data-ig]:focus-visible [data-ig-ov]{opacity:1}
+[data-tip] [data-tip-t]{opacity:0;transform:translateX(8px);transition:.3s;pointer-events:none}
+[data-tip]:hover [data-tip-t]{opacity:1;transform:none}
+
+/* responsive switches */
+@media(max-width:1100px){[data-hdesk]{display:none!important}}
+@media(min-width:1101px){[data-hmob]{display:none!important}}
+@media(max-width:960px){[data-desk]{display:none!important}}
+@media(min-width:961px){[data-mob]{display:none!important}}
+
+[data-svc]{display:grid;gap:20px;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(320px,auto)}
+[data-svc]>[data-span=big]{grid-column:span 2;grid-row:span 2}
+[data-svc]>[data-span=wide]{grid-column:span 2}
+@media(max-width:1060px){[data-svc]{grid-template-columns:repeat(2,minmax(0,1fr))}[data-svc]>[data-span=big]{grid-row:span 1}}
+@media(max-width:640px){[data-svc]{grid-template-columns:minmax(0,1fr)}[data-svc]>[data-span=big],[data-svc]>[data-span=wide]{grid-column:auto}}
+
+[data-offers]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media(max-width:900px){[data-offers]{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 16px;scrollbar-width:none}[data-offers]::-webkit-scrollbar{display:none}[data-offers]>*{flex:0 0 min(80%,320px);scroll-snap-align:start}}
+
+@media(min-width:961px){[data-zig]>*:nth-child(even){margin-top:56px}}
+[data-tabs]{scrollbar-width:none}[data-tabs]::-webkit-scrollbar{display:none}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

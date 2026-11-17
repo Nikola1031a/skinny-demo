@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="position:fixed;top:0;left:0;right:0;z-index:50;transform:{{ wrapTf }};transition:transform .45s cubic-bezier(.2,.7,.2,1)">
+  <div style="height:36px;background:#2B0E25;color:#F3E6EE;font-size:13px;line-height:1;display:flex;align-items:center">
+    <div style="max-width:1320px;margin:0 auto;width:100%;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <div role="status" style="display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:.01em">
+        <span style="width:8px;height:8px;border-radius:50%;background:{{ dotColor }};box-shadow:0 0 0 3px {{ dotRing }};flex:none"></span>
+        <span>{{ statusLabel }}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a href="tel:+381628931094" style="color:#F3E6EE;display:flex;align-items:center;gap:7px;font-weight:600" style-hover="color:#F6C6DA">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+          <span data-desk>062 8931094</span>
+        </a>
+        <a href="https://www.instagram.com/skinny.rs/" target="_blank" rel="noopener" aria-label="Instagram @skinny.rs" style="color:#F3E6EE;display:flex" style-hover="color:#F6C6DA">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <header style="background:{{ hdrBg }};backdrop-filter:{{ hdrBlur }};-webkit-backdrop-filter:{{ hdrBlur }};border-bottom:1px solid {{ hdrBorder }};transition:background .4s,border-color .4s">
+    <div style="max-width:1320px;margin:0 auto;padding:{{ hdrPad }} 20px;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:padding .4s">
+      <a href="{{ homeHref }}" aria-label="SKINNY beauty – početna" style="position:relative;display:block;height:{{ logoH }};aspect-ratio:416/128;transition:height .4s;flex:none">
+        <img src="img/logo-providan.png" alt="SKINNY beauty" width="416" height="128" style="position:absolute;inset:0;width:100%;height:100%;opacity:{{ lightLogoOp }};transition:opacity .4s">
+        <img src="img/logo-providan-tamna-pozadina.png" alt="" aria-hidden="true" width="416" height="128" style="position:absolute;inset:0;width:100%;height:100%;opacity:{{ darkLogoOp }};transition:opacity .4s">
+      </a>
+      <nav data-hdesk aria-label="Glavni meni" style="display:flex;align-items:center;gap:26px">
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="7">
+          <a href="{{ l.href }}" aria-current="{{ l.current }}" style="position:relative;color:{{ l.color }};font-size:14.5px;font-weight:700;letter-spacing:.01em;padding:6px 0;transition:color .3s" style-hover="color:#EE0293">{{ l.label }}<span style="position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:#EE0293;transform:{{ l.under }};transform-origin:left;transition:transform .4s"></span></a>
+        </sc-for>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a data-hdesk data-shine data-magnetic href="{{ waGeneral }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;background:#EE0293;color:#fff;font-weight:800;font-size:15px;padding:13px 22px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(238,2,147,.7)" style-hover="background:#C8007B;color:#fff">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"></path></svg>
+          Zakaži termin
+        </a>
+        <button data-hmob type="button" onClick="{{ openMenu }}" aria-label="Otvori meni" aria-expanded="{{ menuOpenStr }}" aria-controls="sk-menu" style="width:48px;height:48px;border-radius:50%;border:1.5px solid {{ burgerBorder }};background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;padding:0">
+          <span style="width:18px;height:2px;border-radius:2px;background:{{ ink }}"></span>
+          <span style="width:18px;height:2px;border-radius:2px;background:{{ ink }}"></span>
+          <span style="width:12px;height:2px;border-radius:2px;background:#EE0293;margin-left:6px"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div id="sk-menu" role="dialog" aria-modal="true" aria-label="Meni" aria-hidden="{{ menuHidden }}" style="position:fixed;inset:0;z-index:70;background:#FDEAF3;display:flex;flex-direction:column;opacity:{{ menuOp }};visibility:{{ menuVis }};transition:opacity .4s,visibility .4s;overflow-y:auto">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px">
+    <img src="img/logo-providan.png" alt="SKINNY beauty" style="height:40px;width:auto">
+    <button type="button" onClick="{{ closeMenu }}" aria-label="Zatvori meni" ref="{{ closeRef }}" style="width:48px;height:48px;border-radius:50%;border:1.5px solid #1F1520;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F1520" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobilni meni" style="padding:8px 24px 0;display:flex;flex-direction:column">
+    <sc-for list="{{ mlinks }}" as="l" hint-placeholder-count="7">
+      <a href="{{ l.href }}" onClick="{{ closeMenu }}" style="font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(30px,8.5vw,44px);line-height:1.15;letter-spacing:-.01em;color:{{ l.color }};padding:6px 0;border-bottom:1px solid #F6C6DA;opacity:{{ l.op }};transform:{{ l.tf }};transition:opacity .5s {{ l.delay }},transform .6s cubic-bezier(.2,.8,.2,1) {{ l.delay }}">{{ l.label }}<span style="color:#EE0293">.</span></a>
+    </sc-for>
+  </nav>
+  <div style="padding:28px 24px 40px;display:flex;flex-direction:column;gap:14px;margin-top:auto">
+    <a href="{{ waGeneral }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#EE0293;color:#fff;font-weight:800;font-size:17px;padding:16px;border-radius:999px">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.650-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.480 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.870 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"></path></svg>
+      Zakaži preko WhatsApp-a
+    </a>
+    <a href="tel:+381628931094" style="display:flex;align-items:center;justify-content:center;gap:10px;border:1.5px solid #1F1520;color:#1F1520;font-weight:800;font-size:17px;padding:15px;border-radius:999px">Pozovi 062 8931094</a>
+    <div style="font-size:15px;color:#6E5F6B;line-height:1.7;text-align:center;margin-top:6px">
+      <div style="font-weight:700;color:#1F1520">{{ statusLabel }}</div>
+      <div>Pon–Pet 09:00–21:00 · Sub 09:00–15:00 · Ned zatvoreno</div>
+      <div>TC Fontana, Dositejeva 1/24, Kruševac</div>
+    </div>
+  </div>
+</div>
+
+<div data-mob style="position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(251,248,249,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid #F6C6DA;display:grid;grid-template-columns:1fr 1.4fr;gap:10px;transform:{{ barTf }};transition:transform .5s cubic-bezier(.2,.8,.2,1)">
+  <a href="tel:+381628931094" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:999px;border:1.5px solid #1F1520;color:#1F1520;font-weight:800;font-size:16px">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+    Pozovi
+  </a>
+  <a href="{{ waGeneral }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:999px;background:#EE0293;color:#fff;font-weight:800;font-size:16px">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.470-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"></path></svg>
+    WhatsApp
+  </a>
+</div>
+
+<a data-desk data-tip href="{{ waGeneral }}" target="_blank" rel="noopener" aria-label="Zakažite preko WhatsApp-a" style="position:fixed;right:28px;bottom:28px;z-index:45;width:62px;height:62px;border-radius:50%;background:#EE0293;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px -12px rgba(238,2,147,.8);opacity:{{ fabOp }};transform:{{ fabTf }};transition:opacity .4s,transform .5s cubic-bezier(.2,.8,.2,1),background .3s" style-hover="background:#C8007B;color:#fff">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.510-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"></path></svg>
+  <span data-tip-t style="position:absolute;right:76px;top:50%;margin-top:-19px;white-space:nowrap;background:#2B0E25;color:#fff;font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px">Zakažite preko WhatsApp-a</span>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;cenovnik&quot;,&quot;edukacije&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;overHero&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { scrolled: false, bar: false, menu: false, status: null };
+  status() {
+    const p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Belgrade', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    const g = t => (p.find(x => x.type === t) || {}).value;
+    const d = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].indexOf(g('weekday'));
+    const m = (+g('hour') % 24) * 60 + +g('minute');
+    const close = d < 5 ? 1260 : d === 5 ? 900 : 0;
+    const open = close > 0 && m >= 540 && m < close;
+    let label;
+    if (open) label = 'Otvoreno · danas do ' + (d < 5 ? '21:00' : '15:00');
+    else if (close && m < 540) label = 'Zatvoreno · otvaramo u 09:00';
+    else if (d === 5) label = 'Zatvoreno · otvaramo u ponedeljak u 09:00';
+    else label = 'Zatvoreno · otvaramo sutra u 09:00';
+    return { open, label };
+  }
+  componentDidMount() {
+    this.onScroll = () => {
+      const y = window.scrollY;
+      const s = y > 40, b = y > (this.props.overHero ? window.innerHeight * 0.7 : 240);
+      if (s !== this.state.scrolled || b !== this.state.bar) this.setState({ scrolled: s, bar: b });
+    };
+    this.onKey = e => { if (e.key === 'Escape' && this.state.menu) this.setMenu(false); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('keydown', this.onKey);
+    this.onScroll();
+    this.setState({ status: this.status() });
+    this.timer = setInterval(() => this.setState({ status: this.status() }), 60000);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('keydown', this.onKey);
+    clearInterval(this.timer);
+  }
+  setMenu(v) {
+    this.setState({ menu: v });
+    document.body.style.overflow = v ? 'hidden' : '';
+    if (v) setTimeout(() => this.closeEl && this.closeEl.focus(), 60);
+  }
+  renderVals() {
+    const active = this.props.active || 'home';
+    const over = !!this.props.overHero;
+    const { scrolled, menu, bar } = this.state;
+    const st = this.state.status || this.status();
+    const light = over && !scrolled;
+    const ink = light ? '#FFFFFF' : '#1F1520';
+    const pre = active === 'home' ? '' : 'Pocetna.dc.html';
+    const raw = [
+      ['Usluge', pre + '#usluge'], ['Cenovnik', 'Cenovnik.dc.html', 'cenovnik'], ['Rezultati', pre + '#rezultati'],
+      ['Galerija', pre + '#galerija'], ['Edukacije', 'Edukacije.dc.html', 'edukacije'], ['O nama', pre + '#o-nama'], ['Kontakt', pre + '#kontakt']
+    ];
+    const links = raw.map(([label, href, key]) => {
+      const cur = key && key === active;
+      return { label, href, current: cur ? 'page' : undefined, color: cur ? (light ? '#F6C6DA' : '#C8007B') : ink, under: cur ? 'scaleX(1)' : 'scaleX(0)' };
+    });
+    const mlinks = [['Početna', active === 'home' ? '#' : 'Pocetna.dc.html']].concat(raw).map(([label, href, key], i) => ({
+      label, href, color: key && key === active ? '#C8007B' : '#1F1520',
+      op: menu ? 1 : 0, tf: menu ? 'none' : 'translateY(24px)', delay: (menu ? 0.08 + i * 0.05 : 0) + 's'
+    }));
+    return {
+      links, mlinks, ink,
+      homeHref: active === 'home' ? '#' : 'Pocetna.dc.html',
+      waGeneral: 'https://wa.me/381628931094?text=' + encodeURIComponent('Zdravo! Želela bih da zakažem termin u salonu SKINNY.'),
+      statusLabel: st.label,
+      dotColor: st.open ? '#3DDC84' : '#9A8C96',
+      dotRing: st.open ? 'rgba(61,220,132,.25)' : 'rgba(154,140,150,.25)',
+      wrapTf: scrolled ? 'translateY(-36px)' : 'none',
+      hdrBg: light ? 'transparent' : 'rgba(251,248,249,.86)',
+      hdrBlur: light ? 'none' : 'blur(14px) saturate(1.4)',
+      hdrBorder: light ? 'transparent' : 'rgba(238,2,147,.14)',
+      hdrPad: scrolled ? '10px' : '18px',
+      logoH: scrolled ? '40px' : '50px',
+      lightLogoOp: light ? 0 : 1,
+      darkLogoOp: light ? 1 : 0,
+      burgerBorder: light ? 'rgba(255,255,255,.6)' : 'rgba(31,21,32,.25)',
+      menuOpenStr: menu ? 'true' : 'false',
+      menuHidden: menu ? 'false' : 'true',
+      menuOp: menu ? 1 : 0,
+      menuVis: menu ? 'visible' : 'hidden',
+      barTf: bar && !menu ? 'none' : 'translateY(110%)',
+      fabOp: bar ? 1 : 0,
+      fabTf: bar ? 'none' : 'translateY(20px) scale(.8)',
+      openMenu: () => this.setMenu(true),
+      closeMenu: () => this.setMenu(false),
+      closeRef: el => { this.closeEl = el; }
+    };
+  }
+}
+</script>
+</body>
+</html>
