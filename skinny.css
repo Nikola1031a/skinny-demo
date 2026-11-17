@@ -54,6 +54,13 @@ button{font:inherit;color:inherit}
 @media(max-width:900px){[data-offers]{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 16px;scrollbar-width:none}[data-offers]::-webkit-scrollbar{display:none}[data-offers]>*{flex:0 0 min(80%,320px);scroll-snap-align:start}}
 
 @media(min-width:961px){[data-zig]>*:nth-child(even){margin-top:56px}}
+[data-rez]{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"ba head" "ba rest";column-gap:56px;row-gap:0}
+[data-rez-ba]{grid-area:ba;align-self:center}
+[data-rez-head]{grid-area:head;align-self:end}
+[data-rez-rest]{grid-area:rest;align-self:start}
+@media(max-width:1095px){[data-rez]{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "ba" "rest";row-gap:40px}[data-rez-rest]>:first-child{margin-top:0!important}}
+@media(max-width:640px){[data-per]{font-size:12px!important}}
+@media(min-width:1001px){[data-onama-panel]{min-height:560px}}
 [data-tabs]{scrollbar-width:none}[data-tabs]::-webkit-scrollbar{display:none}
 
 @media (prefers-reduced-motion: reduce){

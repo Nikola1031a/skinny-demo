@@ -67,9 +67,14 @@
     if (io) return io;
     io = new IntersectionObserver(function (entries) {
       var k = 0;
+      var list = [];
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        var el = e.target; io.unobserve(el);
+        var t = e.target; io.unobserve(t);
+        if (t._rvSelf) list.push(t);
+        if (t._rvKids) list = list.concat(t._rvKids);
+      });
+      list.forEach(function (el) {
         var d = (el.dataset.delay ? parseFloat(el.dataset.delay) : 0) + (k++) * 0.09;
         el.style.transitionDelay = d + 's';
         if (el.dataset.reveal === 'clip') el.style.clipPath = 'inset(0 0 0 0)';
@@ -84,9 +89,17 @@
     (root || document).querySelectorAll('[data-reveal]').forEach(function (el) {
       if (el._rv) return; el._rv = 1;
       if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
-      if (el.dataset.reveal === 'clip') { el.style.clipPath = 'inset(100% 0 0 0)'; el.style.transition = 'clip-path 1.15s cubic-bezier(.7,0,.2,1)'; }
-      else { el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1)'; }
-      revealIO().observe(el);
+      if (el.dataset.reveal === 'clip') {
+        // a fully clipped element never reports as intersecting — observe its parent instead
+        el.style.clipPath = 'inset(100% 0 0 0)'; el.style.transition = 'clip-path 1.15s cubic-bezier(.7,0,.2,1)';
+        var p = el.parentElement || el;
+        if (p === el) { el._rvSelf = 1; } else { (p._rvKids = p._rvKids || []).push(el); }
+        revealIO().observe(p);
+      } else {
+        el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1)';
+        el._rvSelf = 1;
+        revealIO().observe(el);
+      }
     });
   };
 
